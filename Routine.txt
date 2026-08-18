@@ -1,0 +1,13 @@
+1. Create / Edit File in Vim
+   vim Lab-01-MPI/q1_pow.c
+          │
+          ▼
+2. Compile & Test Locally
+   mpicc Lab-01-MPI/q1_pow.c -o Lab-01-MPI/q1_pow.out -lm
+   mpirun -np 4 ./Lab-01-MPI/q1_pow.out
+          │
+          ▼
+3. Stage, Commit & Push to GitHub
+   git add .
+   git commit -m "Add Lab 1 Question 1 solution"
+   git push

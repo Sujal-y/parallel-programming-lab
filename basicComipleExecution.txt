@@ -1,0 +1,17 @@
+==============================================================================
+PARALLEL PROGRAMMING LAB (CSE 3241) - MPI CHEATSHEET & OPERATIONS GUIDE
+==============================================================================
+
+1. BASIC COMPILATION & EXECUTION (Terminal / CLI)
+------------------------------------------------------------------------------
+* Standard Compilation:
+    mpicc filename.c -o filename.out
+
+* Compilation when using math.h (e.g., pow, sqrt):
+    mpicc filename.c -o filename.out -lm
+
+* Run with N parallel processes:
+    mpirun -np <num_processes> ./filename.out
+
+  Example (4 processes):
+    mpirun -np 4 ./filename.out
