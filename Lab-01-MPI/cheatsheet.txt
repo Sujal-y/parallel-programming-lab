@@ -1,0 +1,28 @@
+------------------------------------------------------------------------------
+LAB 01: MPI Environment & Rank Identification
+------------------------------------------------------------------------------
+Core Functions:
+  - MPI_Init(&argc, &argv);
+      Initializes the MPI environment. Must be called before other MPI routines.
+  - MPI_Comm_size(MPI_COMM_WORLD, &size);
+      Returns the total number of processes launched (-np N).
+  - MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+      Returns the unique ID (0 to size-1) of the current calling process.
+  - MPI_Finalize();
+      Cleans up and terminates the MPI environment.
+
+Minimal Skeleton:
+  #include <mpi.h>
+  #include <stdio.h>
+
+  int main(int argc, char *argv[]) {
+      int rank, size;
+      MPI_Init(&argc, &argv);
+      MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+      MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+      printf("Hello from Process %d of %d\n", rank, size);
+
+      MPI_Finalize();
+      return 0;
+  }
