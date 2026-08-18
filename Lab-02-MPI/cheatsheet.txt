@@ -1,0 +1,27 @@
+------------------------------------------------------------------------------
+LAB 02: Point-to-Point Communication Modes
+------------------------------------------------------------------------------
+Data Types: MPI_INT, MPI_FLOAT, MPI_CHAR, MPI_DOUBLE, MPI_LONG
+
+Send Types:
+  1. Standard Send (Blocks until buffered or sent):
+     MPI_Send(&data, count, datatype, dest_rank, tag, MPI_COMM_WORLD);
+
+  2. Synchronous Send (Blocks until matching receive starts):
+     MPI_Ssend(&data, count, datatype, dest_rank, tag, MPI_COMM_WORLD);
+
+  3. Buffered Send (User-managed buffer):
+     int buffer_size = sizeof(int) + MPI_BSEND_OVERHEAD;
+     void *buffer = malloc(buffer_size);
+     MPI_Buffer_attach(buffer, buffer_size);
+
+     MPI_Bsend(&data, count, datatype, dest_rank, tag, MPI_COMM_WORLD);
+
+     MPI_Buffer_detach(&buffer, &buffer_size);
+     free(buffer);
+
+Receive:
+  MPI_Status status;
+  MPI_Recv(&data, count, datatype, src_rank, tag, MPI_COMM_WORLD, &status);
+  // status.MPI_SOURCE = Sender Rank
+  // status.MPI_TAG    = Message Tag
