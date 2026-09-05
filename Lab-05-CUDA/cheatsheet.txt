@@ -1,0 +1,19 @@
+##how to get cuda running in ubuntu 101##
+
+s1: sudo apt update
+s2: sudo ubuntu-drivers autoinstall
+		sudo reboot
+		
+		verification-----------
+		
+s3: nvidia-smi
+s4: sudo apt install nvidia-cuda-toolkit
+s5: nvcc --version
+
+s6:create a .cu file
+	prog.cu
+	add contents
+	
+s7: nvcc prog.cu -o prog
+s8: ./prog
+
