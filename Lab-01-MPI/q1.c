@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
     int rank, size;
     
     // Define the integer constant 'x'
-    const int x = 3; 
+    const int x = 2; 
 
     // Initialize MPI
     MPI_Init(&argc, &argv);

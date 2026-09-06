@@ -1,6 +1,6 @@
 #include <mpi.h>
 #include <stdio.h>
-#include <math.h>
+#include <string.h>
 
 int main(int argc, char *argv[]) {
     int rank, size;
@@ -13,13 +13,15 @@ int main(int argc, char *argv[]) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    char string[] = "hello"; 
+    char string[] = "hello";
+    int length = strlen(string); 
     
-    if(rank < 5){
+    // Only processes up to the length of the string to avoid an out-of-bounds error
+    if(rank < length){
     
-    
-    string[rank] -= 32;
-    printf("rank: %d string: %s \n",rank,string);
+        // Subtracting 32 from a lowercase letter converts it to uppercase in ASCII
+        string[rank] -= 32;
+        printf("rank: %d string: %s \n",rank,string);
 
 }
 
